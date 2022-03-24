@@ -1,0 +1,65 @@
+<section class="cart_section" style="align-items:center;">
+    <h2>Cart</h2>
+    <div class="container">
+        <table>
+            <tr>
+              <th>Image</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Sub Total</th>
+            </tr>
+            <tr>
+                <td><img src=" " alt=""></td>
+                <td></td>
+                <td></td>
+            </tr>
+          </table>
+    </div>
+</section>
+<div>
+    <h2>Angular Stripe Checkout Page</h2>
+  
+    <div>
+      
+      <a mat-button (click)="initializePayment(1099)" style="background-color: black;color: white;">Buy with CARD</a>
+      
+    </div>
+
+  </div>
+  <google-pay-button
+  environment="TEST"
+  buttonType="buy"
+  buttonColor="black"
+  [paymentRequest]="{
+    apiVersion: 2,
+    apiVersionMinor: 0,
+    allowedPaymentMethods: [
+      {
+        type: 'CARD',
+        parameters: {
+          allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+          allowedCardNetworks: ['AMEX', 'VISA', 'MASTERCARD']
+        },
+        tokenizationSpecification: {
+          type: 'PAYMENT_GATEWAY',
+          parameters: {
+            gateway: 'example',
+            gatewayMerchantId: 'exampleGatewayMerchantId'
+          }
+        }
+      }
+    ],
+    merchantInfo: {
+      merchantId: '12345678901234567890',
+      merchantName: 'Demo Merchant'
+    },
+    transactionInfo: {
+      totalPriceStatus: 'FINAL',
+      totalPriceLabel: 'Total',
+      totalPrice: '100.00',
+      currencyCode: 'USD',
+      countryCode: 'US'
+    }
+  }"
+  (loadpaymentdata)="onLoadPaymentData($event)"
+></google-pay-button>

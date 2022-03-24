@@ -1,0 +1,25 @@
+.card{
+    border: solid;
+    width: 250px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-color: black;
+    background-color: white;
+  }
+  .card label h1,h6{
+    color: black;
+  }
+  label{
+    color: black;
+  }
+  .body,html
+  {
+    background-image: url("https://www.techadvisor.com/cmsdata/slideshow/3677861/best_smartphone_jan_2021_hero_thumb1200_16-9.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
